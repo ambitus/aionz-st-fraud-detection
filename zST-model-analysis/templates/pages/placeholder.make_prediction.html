@@ -1,0 +1,36 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Make Prediction{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h1>Make Prediction</h1>
+</div>
+
+<form action="{{ url_for("run_AI")}}" method="post">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Prediction</label>
+        <div class="col-sm-10">
+        <p>{{ prediction }}</p>
+        </div>
+    </div>
+    
+
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Transaction Data</label>
+        <textarea class="form-control" name="transaction_data" rows="25">
+{
+    feature_0: value_0,
+    feature_1: value_1,
+    feature_2: value_2,
+    ...
+    feature_n: value_n
+}
+        </textarea>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+</form>
+
+
+{% endblock %}
