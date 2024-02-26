@@ -1,0 +1,39 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Prediction Details{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h1>Prediction Details</h1>
+</div>
+
+<table border="1" class="table table-striped table-hover">
+  <tbody>
+      {% for record in predction_data %}
+      {% if record != "features" %}
+      <tr>
+          <td> <b>{{ record }}</b> </td>
+          <td>{{ predction_data[record] }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+  </tbody>
+</table>
+
+<table border="1" class="table table-striped table-hover">
+  <thead>
+    <tr>
+        <td> <b>Feature</b> </td>
+        <td> <b>Value</b> </td>
+    </tr>
+  </thead>
+  <tbody>
+      {% for record in feature_data %}
+      <tr>
+        <td> <b>{{ record }}</b> </td>
+          <td>{{ feature_data[record] }}</td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
