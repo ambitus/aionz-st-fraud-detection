@@ -1,4 +1,0 @@
-{
-  "methods": ["GET", "INVALID"],
-  "path": "/a/:url_key"
-}

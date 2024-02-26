@@ -1,4 +1,0 @@
-extend type Setting {
-  paypalDislayName: String
-  paypalEnvironment: String
-}

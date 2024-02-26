@@ -1,5 +1,0 @@
-{
-  "methods": ["POST"],
-  "path": "/shippingZones",
-  "access": "private"
-}

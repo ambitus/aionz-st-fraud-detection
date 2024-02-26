@@ -1,5 +1,0 @@
-{
-  "methods": ["DELETE"],
-  "path": "/cart/:cart_id/items/:item_id",
-  "access": "public"
-}

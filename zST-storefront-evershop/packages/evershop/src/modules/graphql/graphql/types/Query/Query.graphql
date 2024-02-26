@@ -1,6 +1,0 @@
-"""
-The root query type, represents all of the entry points into our object graph.
-"""
-type Query {
-  hello: String!
-}

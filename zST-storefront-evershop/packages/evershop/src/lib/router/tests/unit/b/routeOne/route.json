@@ -1,4 +1,0 @@
-{
-  "methods": ["GET", "POST"],
-  "path": "/a/:url_key"
-}

@@ -1,5 +1,0 @@
-{
-  "methods": ["DELETE"],
-  "path": "/collections/:collection_id/products/:product_id",
-  "access": "private"
-}

@@ -1,5 +1,0 @@
-{
-  "methods": ["PATCH"],
-  "path": "/shippingZones/:id",
-  "access": "private"
-}

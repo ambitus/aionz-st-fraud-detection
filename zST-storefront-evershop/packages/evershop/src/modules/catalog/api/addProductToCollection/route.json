@@ -1,5 +1,0 @@
-{
-  "methods": ["POST"],
-  "path": "/collections/:collection_id/products",
-  "access": "private"
-}
