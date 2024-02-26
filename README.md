@@ -5,7 +5,7 @@ Within this solution template, there are various phases of the AI lifecycle incl
 # ![alt text](./imgs/clay-banks-c2a0TydMlAs-unsplash.jpg)
 
 ## Getting Started
-View or download the [official AI Solution Template PDF](https://github.ibm.com/AIonZ/ai-st-fraud-detection/blob/main/ai_solution_template_fraud.pdf) to get started
+View or download the [official AI Solution Template PDF](https://github.com/ambitus/aionz-st-fraud-detection/blob/main/ai_solution_template_fraud.pdf) to get started
 
 ## Authors & Contributors
 - Evan Rivera: (Evan.Rivera@ibm.com)
