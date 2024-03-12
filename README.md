@@ -8,7 +8,11 @@ Within this solution template, there are various phases of the AI lifecycle incl
 View or download the [official AI Solution Template PDF](https://github.com/ambitus/aionz-st-fraud-detection/blob/main/ai_solution_template_fraud.pdf) to get started
 
 ## Authors & Contributors
-- Evan Rivera: (Evan.Rivera@ibm.com)
-- Mahalakshmi Vignesh: (mahalakshmi.vignesh@ibm.com)
-- Alexis Landis (alexis.mae.landis@ibm.com)
-- Evershop Project (https://github.com/evershopcommerce/evershop)
+- Owner:
+    - Evan Rivera (Evan.Rivera@ibm.com)
+- Development:
+    - Evan Rivera (Evan.Rivera@ibm.com)
+    - Mahalakshmi Vignesh (mahalakshmi.vignesh@ibm.com)
+    - Evershop Project (https://github.com/evershopcommerce/evershop)
+- Design:
+    - Alexis Landis (alexis.mae.landis@ibm.com)
