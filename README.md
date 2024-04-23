@@ -1,5 +1,5 @@
 # AI on IBM Z Fraud Detection Solution Template
-This is an AI on IBM Z solution templatefor fraud detection. This solution template provides an example on how to deploy AI using an IBM Z environment, while making use of open source frameworks, Machine Learning for IBM z/OS (MLz), and more.
+This is an [AI on IBM Z solution template](https://ambitus.github.io/aionz-solution-templates/) for fraud detection. This solution template provides an example on how to deploy AI using an IBM Z environment, while making use of open source frameworks, Machine Learning for IBM z/OS (MLz), and more.
 
 Within this solution template, there are various phases of the AI lifecycle included. Work through each of the following steps to deploy your own fraud detection solution on IBM Z.
 # ![alt text](./imgs/clay-banks-c2a0TydMlAs-unsplash.jpg)
