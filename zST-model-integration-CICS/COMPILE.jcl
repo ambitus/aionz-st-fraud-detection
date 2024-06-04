@@ -27,11 +27,18 @@
 //*                  TO THE PDS LIBRARY OF SYSTEM DATASETS.           */
 //**********************************************************************
 //*                                                                     
+//COMPILE JOB 1,NOTIFY=&SYSUID
+//IGYWCLG PROC LNGPRFX='<!IGYHLQ!>',LIBPRFX='CEE'
 //COMP1  EXEC PGM=IGYCRCTL,REGION=300M,
 //       PARM=('LIST,MAP,XREF(SHORT),NONUMBER,SOURCE,APOST,ADATA')
-//STEPLIB  DD DSN=<!IGYHLQ!>.SIGYCOMP,DISP=SHR
+//STEPLIB  DD DSN=&LNGPRFX..SIGYCOMP,DISP=SHR
+//         DD DSN=DFH610.CICS.SDFHLOAD,DISP=SHR
+//         DD DSN=DFH610.CICS.SDFHCOB,DISP=SHR
 //SYSPRINT DD  SYSOUT=*
-//SYSIN    DD  DSN=<!SRCLIB!>(<!MEMNAM!>),DISP=SHR
+//SYSIN    DD *
+ CBL CICS('COBOL3,DEBUG,SOURCE,NUM,NOSEQ,SP')
+//         DD  DSN=<!SRCLIB!>(<!MEMNAM!>),DISP=SHR
+//*
 //SYSLIN   DD  DSN=&&LOADSET,DISP=(MOD,PASS),
 //             UNIT=SYSDA,SPACE=(400,(250,100))
 //SYSUT1   DD  UNIT=SYSDA,SPACE=(460,(350,100))
@@ -54,14 +61,14 @@
 //*                                                  
 //LKED   EXEC PGM=IEWL,REGION=4M,                 
 //            PARM='LIST,XREF',COND=(4,LT)        
-//SYSLIB   DD DISP=SHR,DSN=<!SYSLIB>         
-//         DD DISP=SHR,DSN=<!IGYHLQ!>.SDFHLOAD 
+//SYSLIB   DD  DSNAME=&LIBPRFX..SCEELKEX,DISP=SHR
+//         DD  DSNAME=&LIBPRFX..SCEELKED,DISP=SHR
+//         DD DSN=DFH610.CICS.SDFHLOAD,DISP=SHR
 //SYSLMOD  DD DISP=SHR,DSN=<!LOADLIB!>(<!MEMNAM!>)
 //SYSUT1   DD UNIT=SYSDA,DCB=BLKSIZE=1024,        
 //            SPACE=(1024,(200,20))               
 //SYSPRINT DD SYSOUT=*                            
 //SYSLIN   DD DSN=&&LOADSET,DISP=(OLD,DELETE)     
-//         DD DDNAME=SYSIN                        
-//SYSIN    DD *                                                              
-/*                                                
-//*                                               
+//         DD DDNAME=SYSIN                                                      
+// PEND
+// EXEC IGYWCLG

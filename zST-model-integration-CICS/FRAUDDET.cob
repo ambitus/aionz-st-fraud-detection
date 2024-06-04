@@ -24,8 +24,15 @@
            06 XDay COMP-2 SYNC.
            06 Amount COMP-2 SYNC.
            06 MerchantXName COMP-2 SYNC.
+           06 MerchantXState-length PIC S9999 COMP-5 SYNC.
+           06 MerchantXState PIC X(255).
+           06 MerchantXCity-length PIC S9999 COMP-5 SYNC.
+           06 MerchantXCity PIC X(255).
            06 User COMP-2 SYNC.
            06 Zip COMP-2 SYNC.
+           06 MCC COMP-2 SYNC.
+           06 Errors-length PIC S9999 COMP-5 SYNC.
+           06 Errors PIC X(255).
            06 XTime COMP-2 SYNC.
 
       *Scoring Output Variables
@@ -33,8 +40,13 @@
       *Probability(No) - scoring for non fraud transaction
       *Probability(Yes) - scoring for fraud transaction
        01  FRAUDOUT.
-            06 probabilityXNoX               COMP-2 SYNC.
-            06 probabilityXYesX              COMP-2 SYNC.
+         03 SCORE-RC                   PIC 9(4) COMP VALUE 0.
+         03 SCORE-ERR-ID                  PIC X(8).
+         03 SCORE-ERR-MSG                 PIC X(255).
+         03 SCORE-ERR-MSG-LEN             PIC S9999 COMP-5 SYNC.
+         03 MODELOUT.
+             06 probabilityXNoX               COMP-2 SYNC.
+             06 probabilityXYesX              COMP-2 SYNC.
 
       *Typecasting Variables to User friendly Output
       *
@@ -45,9 +57,13 @@
             06 cast-day                      PIC 9(2).
             06 cast-amount                   PIC 9(5).99.
             06 cast-merchant-name            PIC 9(18).
+            06 cast-merchant-city            PIC 9(10).
+            06 cast-merchant-state           PIC 9(2).
             06 cast-user                     PIC 9(2).
             06 cast-time                     PIC 9(2).
             06 cast-zip                      PIC 9(5).9.
+            06 cast-mcc                      PIC 9(4).
+            06 cast-errors                   PIC 9(10).
             06 cast-probabilityXNoX          PIC 9(1).9(16).
             06 cast-probabilityXYesX         PIC 9(1).9(16).
 
@@ -60,6 +76,15 @@
 
              COMPUTE UseXChip-length =
              FUNCTION LENGTH(UseXChip)
+
+             COMPUTE MerchantXState-length =
+             FUNCTION LENGTH(MerchantXState)
+
+             COMPUTE MerchantXCity-length  =
+             FUNCTION LENGTH(MerchantXCity)
+
+             COMPUTE Errors-length  =
+             FUNCTION LENGTH(Errors)
 
              PERFORM 1000-CALL-CICS
                 THRU 1000-CALL-CICS-X.
@@ -78,16 +103,24 @@
       *---------------
 
              MOVE 0                  TO User.
-             MOVE 9                  TO Month.
-             MOVE 134.09             TO Amount.
-             MOVE 1                  TO XDay.
-             MOVE 352721324612787695 TO MerchantXName.
-             MOVE 2002               TO Year.
-             MOVE 9175.0             TO Zip.
-             MOVE 0                  TO Card.
+             MOVE 10                 TO Month.
+             MOVE 3.72               TO Amount.
+             MOVE 13                 TO XDay.
+             MOVE 197144152588600136 TO MerchantXName.
+      *  Merchant Name is 19 digits in original dataset. Take first 18     
+             MOVE 'CA'               TO MerchantXState.
+      *      MOVE 2                  TO MerchantXState-length
+             MOVE 'Upland'           TO MerchantXCity.
+      *      MOVE 6                  TO MerchantXCity-length
+             MOVE 2008               TO Year.
+             MOVE 91784.0            TO Zip.
+             MOVE 3                  TO Card.
              MOVE 'Swipe Transaction' TO UseXChip.
-             MOVE 17                 TO UseXChip-length.
-             MOVE 621                TO XTime.
+      *      MOVE 17                 TO UseXChip-length.
+             MOVE 5300               TO MCC.
+             MOVE 'na'               TO Errors.
+      *      MOVE 2                  TO Errors-length.
+             MOVE 702                TO XTime.
 
       *-----------------
        0500-GET-INPUT-X.
@@ -151,6 +184,7 @@
            MOVE MerchantXName              TO cast-merchant-name.
            MOVE User                       TO cast-user.
            MOVE Zip                        TO cast-zip.
+           MOVE MCC                        TO cast-mcc.
            MOVE XTime                      TO cast-time.
            MOVE probabilityXNoX            TO cast-probabilityXNoX.
            MOVE probabilityXYesX           TO cast-probabilityXYesX.
@@ -168,12 +202,16 @@
              DISPLAY 'Card           :' cast-card.
              DISPLAY 'Day            :' cast-day.
              DISPLAY 'Merchant Name  :' cast-merchant-name.
+             DISPLAY 'Merchant City  :' MerchantXCity.
+             DISPLAY 'Merchant State :' MerchantXState.
              DISPLAY 'Month          :' cast-month.
              DISPLAY 'Time           :' cast-time.
              DISPLAY 'Use Chip       :' UseXChip.
              DISPLAY 'User           :' cast-user.
              DISPLAY 'Year           :' cast-year.
              DISPLAY 'Zip            :' cast-zip.
+             DISPLAY 'MCC            :' cast-mcc.
+             DISPLAY 'Errors         :' Errors.
              DISPLAY '                '.
 
       *****OUTPUT FIELDS*********************************
