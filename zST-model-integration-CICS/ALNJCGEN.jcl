@@ -1,9 +1,6 @@
 //*********************************************************************/
 //* JOB NAME = ALNJCGEN                                               */
 //*                                                                   */
-//*    Licensed Materials - Property of IBM                           */
-//*    (C) COPYRIGHT 2017 IBM Corp.  All Rights Reserved.             */
-//*                                                                   */
 //*    STATUS = Version 1                                             */
 //*                                                                   */
 //* FUNCTION = SAMPLE JCL TO GENERATE JAVA HELPER CLASS FOR           */
