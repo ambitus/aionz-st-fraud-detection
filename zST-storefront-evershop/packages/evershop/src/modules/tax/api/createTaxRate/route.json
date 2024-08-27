@@ -1,5 +1,0 @@
-{
-  "methods": ["POST"],
-  "path": "/tax/classes/:class_id/rates",
-  "access": "private"
-}

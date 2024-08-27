@@ -1,5 +1,0 @@
-{
-  "methods": ["DELETE"],
-  "path": "/categories/:id",
-  "access": "private"
-}

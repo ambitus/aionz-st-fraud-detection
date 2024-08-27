@@ -1,5 +1,0 @@
-extend type Product {
-  editUrl: String
-  updateApi: String!
-  deleteApi: String!
-}

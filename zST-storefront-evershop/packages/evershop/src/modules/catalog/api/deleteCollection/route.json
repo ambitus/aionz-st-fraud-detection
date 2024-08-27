@@ -1,5 +1,0 @@
-{
-  "methods": ["DELETE"],
-  "path": "/collections/:id",
-  "access": "private"
-}

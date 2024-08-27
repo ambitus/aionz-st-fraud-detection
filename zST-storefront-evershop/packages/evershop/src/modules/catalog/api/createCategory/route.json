@@ -1,5 +1,0 @@
-{
-  "methods": ["POST"],
-  "path": "/categories",
-  "access": "private"
-}

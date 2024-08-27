@@ -1,9 +1,0 @@
-{
-  "type": "object",
-  "properties": {
-    "order_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": true
-}

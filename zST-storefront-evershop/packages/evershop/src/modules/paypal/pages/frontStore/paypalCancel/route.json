@@ -1,4 +1,0 @@
-{
-  "methods": ["GET"],
-  "path": "/paypal/cancelling/:order_id"
-}

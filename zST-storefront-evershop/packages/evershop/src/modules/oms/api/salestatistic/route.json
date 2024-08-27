@@ -1,5 +1,0 @@
-{
-  "methods": ["GET"],
-  "path": "/salestatistic",
-  "access": "private"
-}
